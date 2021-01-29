@@ -39,9 +39,9 @@ class ProductsController extends Controller
                 $productXCollection = (new ProductXRepository())->setProduct($productX)->get(request()->except('provider'));
                 if ($provider) break;
 
-           # case 'DataProviderY':
-                #$productY = new Product(env('DataProviderY'));
-              #  $productYCollection = (new ProductYRepository())->setProduct($productY)->get(request()->except('provider'));
+            case 'DataProviderY':
+                $productY = new Product(env('DataProviderY'));
+                $productYCollection = (new ProductYRepository())->setProduct($productY)->get(request()->except('provider'));
         }
 
         return array_merge($productXCollection, $productYCollection);
